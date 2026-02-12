@@ -51,8 +51,8 @@ Super Admin (bootstrapped manually)
 ### Tasks
 
 #### 1.1 Project Initialization
-- [ ] Create Next.js app with TypeScript
-- [ ] Install dependencies: `firebase`, `firebase-admin`, `firebase-functions`
+- [x] Create Next.js app with TypeScript
+- [x] Install dependencies: `firebase`, `firebase-admin`, `firebase-functions`
 - [x] Set up environment variables for Firebase config
 
 #### 1.2 Firebase Project Setup
