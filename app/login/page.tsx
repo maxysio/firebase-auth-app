@@ -10,9 +10,11 @@ function getFriendlyErrorMessage(code: string, defaultMessage: string): string {
   if (
     code === "auth/permission-denied" ||
     code === "permission-denied" ||
-    defaultMessage.toLowerCase().includes("invitation")
+    code === "auth/error-code:-47" ||
+    defaultMessage.toLowerCase().includes("invitation") ||
+    defaultMessage.toLowerCase().includes("blocking function")
   ) {
-    return "You don’t have an invitation to this app. Please ask an administrator for an invite.";
+    return "You don't have an invitation to this app. Please ask an administrator for an invite.";
   }
   if (code === "auth/popup-closed-by-user" || code === "auth/cancelled-popup-request") {
     return "Sign-in was cancelled.";
@@ -41,6 +43,7 @@ export default function LoginPage() {
     setLoading(true);
     try {
       const provider = new GoogleAuthProvider();
+      provider.setCustomParameters({ prompt: "select_account" });
       await signInWithPopup(auth, provider);
       router.replace("/dashboard");
     } catch (err: unknown) {

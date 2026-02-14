@@ -42,3 +42,8 @@ yarn-error.log*
 next-env.d.ts
 
 fb-sa.json
+
+functions/node_modules
+
+*.log
+*.json

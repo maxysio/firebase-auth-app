@@ -202,21 +202,22 @@ export const checkInvite = beforeUserCreated(async (event) => {
 ```
 
 #### 2.3 Post-Sign-In Handling
-- [ ] Create Cloud Function `onUserCreated` to:
+- [x] Create Cloud Function `onUserCreated` to:
   - Create user document in `/users/{uid}`
   - Mark invite as `accepted`
   - Increment org `memberCount`
+- [x] Create `beforeUserSignedIn` blocking function to re-validate on every sign-in
 
 #### 2.4 Invite Email System
-- [ ] Choose email provider (Firebase Extensions: Trigger Email, or SendGrid/Resend)
-- [ ] Create email template with invite link
-- [ ] Invite link format: `https://yourapp.com/login?token={inviteToken}`
+- [x] Deferred for POC — admins manually share invite login links
+- [ ] *(Future)* Choose email provider (SendGrid/Resend) and create email templates
 
 #### 2.5 Dashboard
-- [ ] Create dashboard page showing:
+- [x] Create dashboard page showing:
   - User name, email, profile photo
   - Organization name
-  - Role
+  - Role badge
+  - Sign-out button
 
 ### Deliverables
 - Firestore schema implemented
