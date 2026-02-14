@@ -56,16 +56,16 @@ Super Admin (bootstrapped manually)
 - [x] Set up environment variables for Firebase config
 
 #### 1.2 Firebase Project Setup
-- [ ] Create Firebase project in console
-- [ ] **Upgrade to Firebase Auth with Identity Platform** (required for blocking functions)
-- [ ] Enable Google as auth provider
-- [ ] Create Firestore database (start in test mode)
-- [ ] Generate service account key for Admin SDK
+- [x] Create Firebase project in console
+- [x] **Upgrade to Firebase Auth with Identity Platform** (required for blocking functions)
+- [x] Enable Google as auth provider
+- [x] Create Firestore database (start in test mode)
+- [x] Generate service account key for Admin SDK
 
 #### 1.3 Firebase Client Integration
-- [ ] Create `lib/firebase/client.ts` - initialize Firebase app
-- [ ] Create `lib/firebase/admin.ts` - initialize Admin SDK (server-only)
-- [ ] Create auth context/provider for React
+- [x] Create `lib/firebase/client.ts` - initialize Firebase app
+- [x] Create `lib/firebase/admin.ts` - initialize Admin SDK (server-only)
+- [x] Create auth context/provider for React
 
 #### 1.4 Bootstrap Super Admin
 - [ ] Create one-time setup script (`scripts/bootstrap-super-admin.ts`)
