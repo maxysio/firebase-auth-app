@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "bootstrap:super-admin": "tsx scripts/bootstrap-super-admin.ts"
   },
   "dependencies": {
     "firebase": "^12.9.0",
@@ -17,6 +18,8 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
+    "dotenv": "^16.4.5",
+    "tsx": "^4.19.2",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",

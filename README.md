@@ -68,23 +68,40 @@ Super Admin (bootstrapped manually)
 - [x] Create auth context/provider for React
 
 #### 1.4 Bootstrap Super Admin
-- [ ] Create one-time setup script (`scripts/bootstrap-super-admin.ts`)
-- [ ] Script creates Firebase Auth user with `superAdmin: true` custom claim
-- [ ] Script creates corresponding Firestore user document
-- [ ] Run locally with Admin SDK credentials
-- [ ] Document the bootstrap process
+- [x] Create one-time setup script (`scripts/bootstrap-super-admin.ts`)
+- [x] Script creates Firebase Auth user with `superAdmin: true` custom claim
+- [x] Script creates corresponding Firestore user document
+- [x] Run locally with Admin SDK credentials
+- [x] Document the bootstrap process
 
-```typescript
-// scripts/bootstrap-super-admin.ts (run once)
-// 1. Create user in Firebase Auth (or use existing Google account UID)
-// 2. Set custom claims: { superAdmin: true }
-// 3. Create /users/{uid} doc with role: 'superAdmin'
-```
+**Bootstrap process**
+
+1. Ensure `.env.local` contains Firebase Admin SDK credentials (`FIREBASE_PROJECT_ID`, `FIREBASE_CLIENT_EMAIL`, `FIREBASE_PRIVATE_KEY`).
+2. Install dependencies: `npm install`
+3. Run the script from the project root using one of the following:
+
+   **Option A – Create a new email/password Super Admin user**
+   ```bash
+   npm run bootstrap:super-admin -- --email admin@example.com --password "your-secure-password"
+   ```
+
+   **Option B – Promote an existing Firebase Auth user (e.g. after first Google sign-in)**  
+   Get the user UID from Firebase Console → Authentication → Users, then:
+   ```bash
+   npm run bootstrap:super-admin -- --uid <firebase-auth-uid>
+   ```
+
+4. The script will:
+   - Create the Auth user (Option A) or use the existing one (Option B)
+   - Set custom claims `{ superAdmin: true }`
+   - Create or update the Firestore document at `/users/{uid}` with `role: 'superAdmin'`, `orgId: null`, and profile fields
+
+Run this script once per environment. Do not commit `.env.local` or service account keys.
 
 #### 1.5 Basic Login Page
-- [ ] Build login page with Google sign-in button
-- [ ] Show appropriate error if user is not invited
-- [ ] Redirect to dashboard on successful login
+- [x] Build login page with Google sign-in button
+- [x] Show appropriate error if user is not invited
+- [x] Redirect to dashboard on successful login
 
 ### Deliverables
 - Firebase project configured with Identity Platform
