@@ -14,7 +14,7 @@ const db = getFirestore();
  * Blocking function: runs when a new user account is created.
  * Checks for a valid invite (or superAdmin status) before allowing sign-up.
  */
-export const checkInviteOnCreate = beforeUserCreated(async (event) => {
+export const checkInviteOnCreate = beforeUserCreated({ minInstances: 1 }, async (event) => {
   const email = event.data?.email;
   if (!email) {
     throw new HttpsError("invalid-argument", "Email is required.");
@@ -62,7 +62,7 @@ export const checkInviteOnCreate = beforeUserCreated(async (event) => {
  * Blocking function: runs on every sign-in attempt.
  * Re-validates the user and refreshes custom claims from Firestore.
  */
-export const validateOnSignIn = beforeUserSignedIn(async (event) => {
+export const validateOnSignIn = beforeUserSignedIn({ minInstances: 1 }, async (event) => {
   const uid = event.data?.uid;
   const email = event.data?.email;
 
